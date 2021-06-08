@@ -2,6 +2,7 @@ import tensorflow as tf
 
 from tensorflow.keras import datasets, layers, models
 import matplotlib.pyplot as plt
+import torch
 
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
 
@@ -43,3 +44,5 @@ plt.legend(loc='lower right')
 test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
 
 print(test_acc)
+
+torch.save(model.state_dict(), 'updated_k')
